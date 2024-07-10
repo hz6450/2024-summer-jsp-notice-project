@@ -10,5 +10,5 @@
 <body>
 </body>
 
-<script>location='login.jsp'</script>
+<script>location='main.jsp'</script>
 </html>

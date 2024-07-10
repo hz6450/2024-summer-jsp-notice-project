@@ -1,0 +1,8 @@
+package user;
+
+public class UserDAO {
+	
+	private connection conn;
+	private preparedStatement pstmt;
+	private ResultSet rs;
+}
