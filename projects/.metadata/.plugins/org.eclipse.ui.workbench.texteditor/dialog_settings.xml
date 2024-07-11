@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="collapse"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="navbar navbar-default"/>
+			<item value="collapse"/>
+			<item value="collapse navbar"/>
+			<item value="icon-bar"/>
+			<item value="collapsed"/>
 			<item value="navbar-header"/>
+			<item value="navbar-header&quot;"/>
+			<item value="&quot;navbar-header&quot;"/>
+			<item value="navbar-default"/>
+			<item value="icon-bar4"/>
+			<item value="navbar navbar-default"/>
 			<item value="navbar-"/>
 			<item value="navbar"/>
 			<item value="header"/>
@@ -19,8 +27,8 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="785"/>
-		<item key="DIALOG_Y_ORIGIN" value="217"/>
+		<item key="DIALOG_X_ORIGIN" value="1324"/>
+		<item key="DIALOG_Y_ORIGIN" value="188"/>
 		<item key="DIALOG_WIDTH" value="369"/>
 		<item key="DIALOG_HEIGHT" value="454"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
