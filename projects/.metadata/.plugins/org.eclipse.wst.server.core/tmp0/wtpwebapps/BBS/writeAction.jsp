@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="bbs.BbsDAO"%>
 <%@ page import="java.io.PrintWriter"%>
+<%@ page import="java.util.Random" %>
 <%
 request.setCharacterEncoding("UTF-8");
 %>
@@ -19,19 +20,20 @@ request.setCharacterEncoding("UTF-8");
 </head>
 
 <body>
+	
 	<%
+	Random ran = new Random();
+	Random ran2 = new Random();
+	
+	String tempID = ran.nextInt(100) + "." + ran2.nextInt(100);
+	
 	String userID = null;
+	
 	if (session.getAttribute("userID") != null) {
 		userID = (String) session.getAttribute("userID");
 	}
 
-	if (userID == null) {
-		PrintWriter script = response.getWriter();
-		script.println("<script>"); // script태그 실행문구
-		script.println("alert('로그인을 해주세요')");
-		script.println("location.href = 'login.jsp'");
-		script.println("</script>");
-	} else {
+
 		if (bbs.getBbsTitle() == null || bbs.getBbsContent() == null) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>"); // script태그 실행문구
@@ -40,7 +42,7 @@ request.setCharacterEncoding("UTF-8");
 			script.println("</script>");
 		} else {
 			BbsDAO bbsDAO = new BbsDAO();
-			int result = bbsDAO.write(bbs.getBbsTitle(), userID, bbs.getBbsContent());
+			int result = bbsDAO.write(bbs.getBbsTitle(), tempID, bbs.getBbsContent());
 			if (result == -1) {
 		PrintWriter script = response.getWriter();
 		script.println("<script>"); // script태그 실행문구
@@ -55,7 +57,7 @@ request.setCharacterEncoding("UTF-8");
 			}
 		}
 
-	}
+
 	%>
 </body>
 

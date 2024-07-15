@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="10"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="10"/>
+			<item value="list"/>
+			<item value="권한"/>
+			<item value="삭제"/>
+			<item value="bbs"/>
+			<item value="action"/>
+			<item value="&#x09;&#x09;&#x09;&lt;%"/>
+			<item value="접속"/>
+			<item value="carousel"/>
+			<item value="myCarousel"/>
 			<item value="bbsTitle"/>
 			<item value="updataAction"/>
 			<item value="methon"/>
 			<item value="getBbs"/>
 			<item value="id"/>
-			<item value="bbs"/>
-			<item value="bbs.Bbs.getBbsTitle()"/>
-			<item value="getBbsTitle"/>
-			<item value="getNext"/>
-			<item value="username"/>
-			<item value="userPassword"/>
-			<item value="userID"/>
-			<item value="글쓰기"/>
-			<item value="active"/>
-			<item value="action"/>
 		</list>
 		<list key="replacehistory">
 			<item value="method"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1372"/>
-		<item key="DIALOG_Y_ORIGIN" value="207"/>
+		<item key="DIALOG_X_ORIGIN" value="969"/>
+		<item key="DIALOG_Y_ORIGIN" value="-223"/>
 		<item key="DIALOG_WIDTH" value="369"/>
 		<item key="DIALOG_HEIGHT" value="454"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

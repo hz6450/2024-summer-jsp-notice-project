@@ -1,0 +1,12 @@
+        table td {
+            padding: 14px 21px;
+            color: #666;
+            font-size: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+        
+                table tr:hover {
+            background: #eee;
+            cursor: pointer;
+        }

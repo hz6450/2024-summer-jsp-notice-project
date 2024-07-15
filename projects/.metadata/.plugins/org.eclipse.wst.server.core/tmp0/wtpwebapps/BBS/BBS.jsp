@@ -11,12 +11,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width" initial-scale="1">
 <link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/custom.css">
 <title>jsp 게시판 웹 사이트</title>
 <style type="text/css">
-	a, a:hover{
-	color:#000000;
-	text-decoration: none;
-	}
 </style>
 </head>
 
@@ -32,6 +29,7 @@
 		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 	}
 	%>
+
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -47,81 +45,51 @@
 				<li><a href="main.jsp">메인</a></li>
 				<li class="active"><a href="BBS.jsp">게시판</a></li>
 			</ul>
-			<%
-			if (userID == null) { //로그인 정보가 없을때
-			%>
-			<ul class="nav navber-nav navbar-right">
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">접속하기<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="login.jsp">로그인</a></li>
-						<li><a href="join.jsp">회원가입</a></li>
-					</ul></li>
-			</ul>
-			<%
-			} else { // 로그인되었을때
-			%>
-			<ul class="nav navber-nav navbar-right">
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">회원관리<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="logoutAction.jsp">로그아웃</a></li>
-					</ul></li>
-			</ul>
-			<%
-			}
-			%>
-			<div class="container">
-				<div class="row">
-					<table class="table table-striped"
-						style="text-align: center; border: 1px solid #dddddd;">
-						<thead>
-							<tr>
-								<th style="background-color: #eeeeee; text-align: center;">번호</th>
-								<th style="background-color: #eeeeee; text-align: center;">제목</th>
-								<th style="background-color: #eeeeee; text-align: center;">작성자</th>
-								<th style="background-color: #eeeeee; text-align: center;">작성일</th>
-							</tr>
-						</thead>
-						<tbody>
-							<%
-							BbsDAO bbsDAO = new BbsDAO();
-							ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
-							for (int i = 0; i < list.size(); i++) {
-							%>
-							<tr>
-								<td><%= list.get(i).getBbsId() %></td>
-								<td><a href="view.jsp?bbsID=<%=list.get(i).getBbsId()%>">
-										<%= list.get(i).getBbsTitle() %></a></td>
-								<td><%= list.get(i).getUserID() %></td>
-								<td><%= list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + "시" + list.get(i).getBbsDate().substring(14, 16) + "분" %></td>
-							</tr>
-						</tbody>
-						<%
-						}
-						%>
-
-					</table>
-					<%
-						if(pageNumber != 1){
-							%>
-					<a href="BBS.jsp?pageNumber=<%=pageNumber -1 %>" class="btn btn-success btn-arrow-left">이전</a>
-
-					<% 
-						}if(bbsDAO.nextPage(pageNumber + 1)){
-							%>
-					<a href="BBS.jsp?pageNumber=<%=pageNumber +1 %>" class="btn btn-success btn-arrow-left">다음</a>
-					<% 
-						}
-					%>
-					<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
-				</div>
-			</div>
-
-		</div>
 	</nav>
+	<div class="container">
+		<div class="row">
+			<table class="table table-striped" id="bbs-table">
+				<thead style="box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1)">
+					<tr>
+						<th id="bbs-th">No.</th>
+						<th id="bbs-th-bor">제목</th>
+						<th id="bbs-th-bor">작성자</th>
+						<th id="bbs-th-bor">작성일</th>
+						<th id="bbs-th-bor">조회수</th>
+					</tr>
+				</thead>
+				<tbody id="bbs-tr">
+					<%
+					BbsDAO bbsDAO = new BbsDAO();
+					ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
+					for (int i = 0; i < list.size(); i++) {
+					%>
+					<tr>
+						<td id=""><%=list.get(i).getBbsId()%></td>
+						<td id="bbs-td-bor"><a
+							href="view.jsp?bbsID=<%=list.get(i).getBbsId()%>"> <%=list.get(i).getBbsTitle()%></a></td>
+						<td id="bbs-td-bor"><%=list.get(i).getUserID()%></td>
+						<td id="bbs-td-bor"><%=list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + "시"
+		+ list.get(i).getBbsDate().substring(14, 16) + "분"%></td>
+						<td id="bbs-td-bor"><%=list.get(i).getBbsView()%></td>
+				</tbody>
+				<%
+				}
+				%>
+
+			</table>
+			<a href="BBS.jsp?pageNumber=<%=pageNumber - 1%>"
+				class="btn btn-success btn-arrow-left">이전</a> <a
+				href="BBS.jsp?pageNumber=<%=pageNumber + 1%>"
+				class="btn btn-success btn-arrow-left" style="align: center">다음</a>
+
+
+			<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
+		</div>
+	</div>
+
+	</div>
+
 
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>

@@ -52,7 +52,7 @@ public class BbsDAO {
 	}
 
 	public int write(String bbsTitle, String userID, String bbsContent) {
-		String SQL = "INSERT INTO BBS VALUE(?,?,?,?,?,?)";
+		String SQL = "INSERT INTO BBS VALUE(?,?,?,?,?,?,?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 
@@ -62,7 +62,7 @@ public class BbsDAO {
 			pstmt.setString(4, getDate());
 			pstmt.setString(5, bbsContent);
 			pstmt.setInt(6, 1);
-
+			pstmt.setInt(7, 0);
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -71,11 +71,11 @@ public class BbsDAO {
 	}
 
 	public ArrayList<Bbs> getList(int pageNumber) {
-		String SQL = "SELECT * From BBS WHERE bbsID < ? AND bbsAvailable = 1 ORDER BY bbsID DESC LIMIT 10";
+		String SQL = "SELECT * From BBS WHERE bbsID < ? AND bbsAvailable = 1 ORDER BY bbsID DESC LIMIT 5";
 		ArrayList<Bbs> list = new ArrayList<Bbs>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
+			pstmt.setInt(1, getNext() - (pageNumber - 1) * 5);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Bbs bbs = new Bbs();
@@ -85,6 +85,7 @@ public class BbsDAO {
 				bbs.setBbsDate(rs.getString(4));
 				bbs.setBbsContent(rs.getString(5));
 				bbs.setBbsAvailable(rs.getInt(6));
+				bbs.setBbsView(rs.getInt(7));
 				list.add(bbs);
 			}
 		} catch (Exception e) {
@@ -94,10 +95,10 @@ public class BbsDAO {
 	}
 
 	public boolean nextPage(int pageNumber) {
-		String SQL = "SELECT * From BBS WHERE bbsID < ? AND bbsAvailable = 1 ORDER BY bbsID DESC LIMIT 10";
+		String SQL = "SELECT * From BBS WHERE bbsAvailable = 1 ORDER BY bbsID DESC LIMIT 20";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
-			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
+			pstmt.setInt(1, getNext() - (pageNumber - 1) * 5);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return true;
@@ -122,12 +123,29 @@ public class BbsDAO {
 				bbs.setBbsDate(rs.getString(4));
 				bbs.setBbsContent(rs.getString(5));
 				bbs.setBbsAvailable(rs.getInt(6));
+				int bbsView = rs.getInt(7);
+				bbs.setBbsView(bbsView);
+				bbsView = bbsView + 1;
+				countUpdate(bbsView, bbsID);
 				return bbs;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public int countUpdate(int bbsCount, int bbsID) {
+		String SQL = "update bbs set bbsViews = ? where bbsID = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, bbsCount);// 물음표의 순서
+			pstmt.setInt(2, bbsID);
+			return pstmt.executeUpdate();// insert,delete,update
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1;// 데이터베이스 오류
 	}
 
 	public int update(int bbsID, String bbsTitle, String bbsContent) {
@@ -147,7 +165,7 @@ public class BbsDAO {
 	}
 
 	public int delete(int bbsID) {
-		String SQL = "UPDATE BBS SET bbsAvailable=0 WHERE bbsID = ?";
+		String SQL = "DELETE FROM BBS WHERE bbsID = ?";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, bbsID);

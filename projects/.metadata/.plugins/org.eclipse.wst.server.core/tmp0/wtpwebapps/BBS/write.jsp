@@ -33,32 +33,6 @@
 				<li><a href="main.jsp">메인</a></li>
 				<li class="active"><a href="BBS.jsp">게시판</a></li>
 			</ul>
-			<%
-			if (userID == null) { //로그인 정보가 없을때
-			%>
-			<ul class="nav navber-nav navbar-right">
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">접속하기<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="login.jsp">로그인</a></li>
-						<li><a href="join.jsp">회원가입</a></li>
-					</ul></li>
-			</ul>
-			<%
-			} else { // 로그인되었을때
-			%>
-			<ul class="nav navber-nav navbar-right">
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">회원관리<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="logoutAction.jsp">로그아웃</a></li>
-					</ul></li>
-			</ul>
-			<%
-			}
-			%>
 			<div class="container">
 				<div class="row">
 					<form method="post" action="writeAction.jsp">
@@ -77,7 +51,7 @@
 									<td><input type="text" class="form-control"
 										placeholder="글 제목" name="bbsTitle" maxlength="50"></td>
 								</tr>
-
+								
 								<tr>
 									<td><textarea type="text" class="form-control"
 											placeholder="글 내용" name="bbsContent" maxlength="2048"

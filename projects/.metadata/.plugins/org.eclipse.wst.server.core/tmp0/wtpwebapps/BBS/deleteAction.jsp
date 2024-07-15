@@ -23,13 +23,6 @@ request.setCharacterEncoding("UTF-8");
 		userID = (String) session.getAttribute("userID");
 	}
 
-	if (userID == null) {
-		PrintWriter script = response.getWriter();
-		script.println("<script>"); // script태그 실행문구
-		script.println("alert('로그인을 해주세요')");
-		script.println("location.href = 'login.jsp'");
-		script.println("</script>");
-	}
 	int bbsID = 0;
 	if (request.getParameter("bbsID") != null) {
 		bbsID = Integer.parseInt(request.getParameter("bbsID"));
@@ -43,27 +36,20 @@ request.setCharacterEncoding("UTF-8");
 	}
 
 	Bbs bbs = new BbsDAO().getBbs(bbsID);
-	if (!userID.equals(bbs.getUserID())) {
+
+	BbsDAO bbsDAO = new BbsDAO();
+	int result = bbsDAO.delete(bbsID);
+	if (result == -1) {
 		PrintWriter script = response.getWriter();
 		script.println("<script>"); // script태그 실행문구
-		script.println("alert('권한이 없습니다.')");
-		script.println("location.href = 'bbs.jsp'");
+		script.println("alert('글 삭제에 실패했습니다.')");
+		script.println("history.back()");
 		script.println("</script>");
 	} else {
-		BbsDAO bbsDAO = new BbsDAO();
-		int result = bbsDAO.delete(bbsID);
-		if (result == -1) {
-			PrintWriter script = response.getWriter();
-			script.println("<script>"); // script태그 실행문구
-			script.println("alert('글 삭제에 실패했습니다.')");
-			script.println("history.back()");
-			script.println("</script>");
-		} else {
-			PrintWriter script = response.getWriter();
-			script.println("<script>"); // script태그 실행문구
-			script.println("location.href='BBS.jsp'");
-			script.println("</script>");
-		}
+		PrintWriter script = response.getWriter();
+		script.println("<script>"); // script태그 실행문구
+		script.println("location.href='BBS.jsp'");
+		script.println("</script>");
 	}
 	%>
 </body>

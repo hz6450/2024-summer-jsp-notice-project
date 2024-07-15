@@ -1,0 +1,24 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+
+* {
+	font-family: "Nanum Gothic";
+}
+
+h1 {
+	font-family: "Hanna";
+}
+
+#bbs-table {
+	text-align: center;
+	border: 1px solid #dddddd;
+	border-right: none; 
+	border-bottom: none;
+	border-top: none;
+	border-left: none;
+}
+#bbs-tr {
+	border-collapse: separate;
+   border-spacing: 10px 10px;
+}

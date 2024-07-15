@@ -34,32 +34,6 @@
 				<li class="active"><a href="main.jsp">메인</a></li>
 				<li><a href="BBS.jsp">게시판</a></li>
 			</ul>
-			<%
-			if (userID == null) { //로그인 정보가 없을때
-			%>
-			<ul class="nav navber-nav navbar-right">
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">접속하기<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="login.jsp">로그인</a></li>
-						<li><a href="join.jsp">회원가입</a></li>
-					</ul></li>
-			</ul>
-			<%
-			} else { // 로그인되었을때
-			%>
-			<ul class="nav navber-nav navbar-right">
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">회원관리<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="logoutAction.jsp">로그아웃</a></li>
-					</ul></li>
-			</ul>
-			<%
-			}
-			%>
 		</div>
 	</nav>
 
@@ -67,7 +41,7 @@
 		<div class="jumbotron">
 			<div class="container">
 				<h1>웹 사이트 소개</h1>
-				<p>jsp와 부트스트램, tomcat을 이용한 웹사이트</p>
+				<p>jsp와 부트스트랩, tomcat을 이용한 웹사이트</p>
 				<p>
 					<a class="btn btn-primary btn-pull" href="#" role="button">자세히
 						알아보기</a>

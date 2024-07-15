@@ -49,32 +49,7 @@
 				<li><a href="main.jsp">메인</a></li>
 				<li class="active"><a href="BBS.jsp">게시판</a></li>
 			</ul>
-			<%
-			if (userID == null) { //로그인 정보가 없을때
-			%>
-			<ul class="nav navber-nav navbar-right">
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">접속하기<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="login.jsp">로그인</a></li>
-						<li><a href="join.jsp">회원가입</a></li>
-					</ul></li>
-			</ul>
-			<%
-			} else { // 로그인되었을때
-			%>
-			<ul class="nav navber-nav navbar-right">
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">회원관리<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="logoutAction.jsp">로그아웃</a></li>
-					</ul></li>
-			</ul>
-			<%
-			}
-			%>
+		</nav>
 			<div class="container">
 				<div class="row">
 					<table class="table table-striped"
@@ -103,22 +78,22 @@
 							<td>내용</td>
 							<td colspan="2" style="min-height: 200px; text-align: left;"><%= bbs.getBbsContent().replaceAll(" ","&nbsp;").replaceAll("<", "&it;")%></td>
 							</tr>
+							<tr>
+								<td>조회수</td>
+								<td colspan="2"><%=bbs.getBbsView() + 1%></td>
+							</tr>
 						</tbody>
 					</table>
 					<a href="BBS.jsp" class="btn btn-primary">목록</a>
-					<%
-					if (userID != null && userID.equals(bbs.getUserID())) {
-					%>
+
 					<a href="update.jsp?bbsID=<%=bbsID%>" class="btn btn-primary">수정</a>
 					<a onclick="return confirm('정말로 삭제하시겠습니까?')"href="deleteAction.jsp?bbsID=<%=bbsID%>" class="btn btn-primary">삭제</a>
-					<%
-					}
-					%>
+
 				</div>
 			</div>
 
 		</div>
-	</nav>
+	
 
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
