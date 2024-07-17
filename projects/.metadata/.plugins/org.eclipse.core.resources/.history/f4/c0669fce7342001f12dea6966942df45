@@ -1,0 +1,89 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+
+* {
+	font-family: "Nanum Gothic";
+}
+
+h1 {
+	font-family: "Hanna";
+}
+
+#bbs-table {
+  border-collapse: collapse;
+  margin: 1rem auto;
+  background-color: white;
+}
+
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+#bbs-th {
+  padding: 8px;
+  text-align: left;
+  text-align: center;
+  border-bottom: 2px solid #000;
+  background-color: #E7E7E7;
+  
+}
+
+#bbs-th-bor {
+  padding: 8px;
+  text-align: left;
+  text-align: center;
+  border-bottom: 2px solid #000;
+  border-left: 1px solid #000;
+  background-color: #E7E7E7;
+  color: #000;
+}
+
+#bbs-td-bor {
+  text-align: left;
+  text-align: center;
+  border-left: 1px solid #000;
+  color: #000;
+}
+
+.btn-next{
+	position: absolute;
+  top:50%;
+  background-color:#0a0a23;
+  color: #fff;
+  border:none;	
+}
+
+#myCarousel {
+    width: 100%; /* Full width */
+    height: 400px; /* Fixed height */
+    overflow: hidden; /* Hide overflow to prevent vertical scroll */
+}
+
+.carousel-inner {
+    width: 100%;
+    height: 100%; /* Ensure carousel-inner takes full height of #myCarousel */
+}
+
+.carousel-inner .item {
+    width: 100%;
+    height: 100%; /* Ensure each item takes full height of carousel-inner */
+}
+
+.carousel-inner .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the entire area of the item */
+}
+
+.carousel-control {
+    width: 5%; /* Adjust width of controls as needed */
+}
+
+.carousel-control.left,
+.carousel-control.right {
+    background-image: none; /* Remove default background image for controls */
+}

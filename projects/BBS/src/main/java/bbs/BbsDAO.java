@@ -51,8 +51,8 @@ public class BbsDAO {
 		return 1;
 	}
 
-	public int write(String bbsTitle, String userID, String bbsContent) {
-		String SQL = "INSERT INTO BBS VALUE(?,?,?,?,?,?,?)";
+	public int write(String bbsTitle, String userID, String bbsContent, String bbsCategory) {
+		String SQL = "INSERT INTO BBS VALUE(?,?,?,?,?,?,?,?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 
@@ -63,6 +63,7 @@ public class BbsDAO {
 			pstmt.setString(5, bbsContent);
 			pstmt.setInt(6, 1);
 			pstmt.setInt(7, 0);
+			pstmt.setString(8, bbsCategory);
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -86,6 +87,82 @@ public class BbsDAO {
 				bbs.setBbsContent(rs.getString(5));
 				bbs.setBbsAvailable(rs.getInt(6));
 				bbs.setBbsView(rs.getInt(7));
+				bbs.setBbsCategory(rs.getString(8));
+				list.add(bbs);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	public ArrayList<Bbs> getListNotice(int pageNumber) {
+		String SQL = "SELECT * From BBS WHERE bbsID < ? AND bbsCategory=\"공지\" AND bbsAvailable = 1 ORDER BY bbsID DESC LIMIT 5";
+		ArrayList<Bbs> list = new ArrayList<Bbs>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, getNext() - (pageNumber - 1) * 5);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Bbs bbs = new Bbs();
+				bbs.setBbsId(rs.getInt(1));
+				bbs.setBbsTitle(rs.getString(2));
+				bbs.setUserID(rs.getString(3));
+				bbs.setBbsDate(rs.getString(4));
+				bbs.setBbsContent(rs.getString(5));
+				bbs.setBbsAvailable(rs.getInt(6));
+				bbs.setBbsView(rs.getInt(7));
+				bbs.setBbsCategory(rs.getString(8));
+				list.add(bbs);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	public ArrayList<Bbs> getListFree(int pageNumber) {
+		String SQL = "SELECT * From BBS WHERE bbsID < ? AND bbsCategory=\"자유\" AND bbsAvailable = 1 ORDER BY bbsID DESC LIMIT 5";
+		ArrayList<Bbs> list = new ArrayList<Bbs>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, getNext() - (pageNumber - 1) * 5);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Bbs bbs = new Bbs();
+				bbs.setBbsId(rs.getInt(1));
+				bbs.setBbsTitle(rs.getString(2));
+				bbs.setUserID(rs.getString(3));
+				bbs.setBbsDate(rs.getString(4));
+				bbs.setBbsContent(rs.getString(5));
+				bbs.setBbsAvailable(rs.getInt(6));
+				bbs.setBbsView(rs.getInt(7));
+				bbs.setBbsCategory(rs.getString(8));
+				list.add(bbs);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	public ArrayList<Bbs> getListQuestion(int pageNumber) {
+		String SQL = "SELECT * From BBS WHERE bbsID < ? AND bbsCategory=\"질문\" AND bbsAvailable = 1 ORDER BY bbsID DESC LIMIT 5";
+		ArrayList<Bbs> list = new ArrayList<Bbs>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, getNext() - (pageNumber - 1) * 5);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Bbs bbs = new Bbs();
+				bbs.setBbsId(rs.getInt(1));
+				bbs.setBbsTitle(rs.getString(2));
+				bbs.setUserID(rs.getString(3));
+				bbs.setBbsDate(rs.getString(4));
+				bbs.setBbsContent(rs.getString(5));
+				bbs.setBbsAvailable(rs.getInt(6));
+				bbs.setBbsView(rs.getInt(7));
+				bbs.setBbsCategory(rs.getString(8));
 				list.add(bbs);
 			}
 		} catch (Exception e) {
@@ -124,6 +201,7 @@ public class BbsDAO {
 				bbs.setBbsContent(rs.getString(5));
 				bbs.setBbsAvailable(rs.getInt(6));
 				int bbsView = rs.getInt(7);
+				bbs.setBbsCategory(rs.getString(8));
 				bbs.setBbsView(bbsView);
 				bbsView = bbsView + 1;
 				countUpdate(bbsView, bbsID);
@@ -176,4 +254,5 @@ public class BbsDAO {
 		}
 		return -1;
 	}
+
 }

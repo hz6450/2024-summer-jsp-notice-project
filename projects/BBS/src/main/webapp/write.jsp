@@ -43,26 +43,33 @@
 									<th colspan="2"
 										style="background-color: #eeeeee; text-align: center;">게시판
 										글쓰기 양식</th>
-
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
 									<td><input type="text" class="form-control"
 										placeholder="글 제목" name="bbsTitle" maxlength="50"></td>
+									<td></td>
 								</tr>
-								
 								<tr>
 									<td><textarea type="text" class="form-control"
 											placeholder="글 내용" name="bbsContent" maxlength="2048"
 											style="height: 350px;"></textarea></td>
 								</tr>
+								<tr>
+									<td><label>카테고리 선택</label> <br> <select
+										name="bbsCategory" id="bbsCategory">
+											<option value="공지">공지</option>
+											<option value="자유">자유</option>
+											<option value="질문">질문</option>
+									</select></td>
+								</tr>
 							</tbody>
-
 						</table>
-						<input type="submit" href="bbs.jsp"
-							class="btn btn-primary pull-right" value="글쓰기">
+						<input type="submit" class="btn btn-primary pull-right"
+							value="글쓰기">
 					</form>
+
 				</div>
 			</div>
 

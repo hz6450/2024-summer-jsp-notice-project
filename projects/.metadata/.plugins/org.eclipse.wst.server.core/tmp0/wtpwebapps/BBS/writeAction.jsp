@@ -9,8 +9,7 @@ request.setCharacterEncoding("UTF-8");
 <jsp:useBean id="bbs" class="bbs.Bbs" scope="page" />
 <jsp:setProperty name="bbs" property="bbsTitle" />
 <jsp:setProperty name="bbs" property="bbsContent" />
-
-
+<jsp:setProperty name="bbs" property="bbsCategory" />
 <!DOCTYPE html>
 <html>
 
@@ -42,7 +41,7 @@ request.setCharacterEncoding("UTF-8");
 			script.println("</script>");
 		} else {
 			BbsDAO bbsDAO = new BbsDAO();
-			int result = bbsDAO.write(bbs.getBbsTitle(), tempID, bbs.getBbsContent());
+			int result = bbsDAO.write(bbs.getBbsTitle(), tempID, bbs.getBbsContent(), bbs.getBbsCategory());
 			if (result == -1) {
 		PrintWriter script = response.getWriter();
 		script.println("<script>"); // script태그 실행문구

@@ -7,6 +7,7 @@
 <html>
 
 <head>
+<link rel="stylesheet" href="css/custom-font.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width" initial-scale="1">
 <link rel="stylesheet" href="css/bootstrap.css">
@@ -49,6 +50,7 @@
 				<li><a href="main.jsp">메인</a></li>
 				<li class="active"><a href="BBS.jsp">게시판</a></li>
 			</ul>
+			</div>
 		</nav>
 			<div class="container">
 				<div class="row">
@@ -68,6 +70,10 @@
 								<td colspan="2"><%=bbs.getBbsTitle().replaceAll(" ","&nbsp;").replaceAll("<", "&it;")%></td>
 							</tr>
 							<tr>
+								<td style="width: 20%;">글 종류</td>
+								<td colspan="2"><%=bbs.getBbsCategory()%></td>
+							</tr>
+							<tr>
 								<td>작성자</td>
 								<td colspan="2"><%=bbs.getUserID()%></td>
 							</tr>
@@ -75,8 +81,8 @@
 								<td>작성 일자</td>
 								<td colspan="2"><%=bbs.getBbsDate().substring(0, 11) + bbs.getBbsDate().substring(11, 13) + "시"+ bbs.getBbsDate().substring(14, 16) + "분"%></td>
 							</tr>
-							<td>내용</td>
-							<td colspan="2" style="min-height: 200px; text-align: left;"><%= bbs.getBbsContent().replaceAll(" ","&nbsp;").replaceAll("<", "&it;")%></td>
+							<td style="text-align:center; vertical-align:middle;">내용</td>
+							<td colspan="2" style="height: 200px; text-align: left;"><%= bbs.getBbsContent().replaceAll(" ","&nbsp;").replaceAll("<", "&it;")%></td>
 							</tr>
 							<tr>
 								<td>조회수</td>
@@ -92,7 +98,7 @@
 				</div>
 			</div>
 
-		</div>
+		
 	
 
 

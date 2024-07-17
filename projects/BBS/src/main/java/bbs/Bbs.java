@@ -7,7 +7,16 @@ public class Bbs {
 	private String userID;
 	private String bbsDate;
 	private String bbsContent;
+	private String bbsCategory;
 	private int bbsView;
+
+	public String getBbsCategory() {
+		return bbsCategory;
+	}
+
+	public void setBbsCategory(String bbsCategory) {
+		this.bbsCategory = bbsCategory;
+	}
 
 	public int getBbsView() {
 		return bbsView;

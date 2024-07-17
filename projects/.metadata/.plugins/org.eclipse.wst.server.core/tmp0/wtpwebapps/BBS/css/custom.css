@@ -56,3 +56,11 @@ td {
   color: #fff;
   border:none;	
 }
+
+.carousel-inner .item img {
+    width: 100%; /* 이미지를 부모 요소인 .item의 너비에 맞춰 조정 */
+    height: auto; /* 너비에 맞추어 비율을 자동으로 조정 */
+    display: block; /* 이미지 요소를 블록 레벨 요소로 표시 */
+    max-width: 100%; /* 이미지가 자신의 원래 크기보다 크면 최대 너비로 제한 */
+    max-height: 100%; /* 이미지가 자신의 원래 크기보다 크면 최대 높이로 제한 */
+}
