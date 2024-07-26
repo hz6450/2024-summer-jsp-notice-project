@@ -1,7 +1,6 @@
 package bbs;
 
 public class Bbs {
-
 	private int bbsId;
 	private String bbsTitle;
 	private String userID;

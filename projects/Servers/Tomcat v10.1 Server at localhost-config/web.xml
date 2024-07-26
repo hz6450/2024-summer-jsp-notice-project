@@ -126,7 +126,6 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
-
   <!-- The JSP page compiler and execution servlet, which is the mechanism  -->
   <!-- used by Tomcat to support JSP pages.  Traditionally, this servlet    -->
   <!-- is mapped to the URL pattern "*.jsp".  This servlet supports the     -->
@@ -275,6 +274,14 @@
         </init-param>
         <load-on-startup>3</load-on-startup>
     </servlet>
+    
+    <servlet>
+    <description></description>
+    <display-name>BbsServlet</display-name>
+    
+    <servlet-name>BbsServlet</servlet-name>
+    <servlet-class>bbs.BbsServlet</servlet-class>
+ </servlet>
 
 
   <!-- NOTE: An SSI Filter is also available as an alternative SSI          -->
@@ -434,6 +441,11 @@
         <servlet-name>default</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+    
+     <servlet-mapping>
+    <servlet-name>BbsServlet</servlet-name>
+    <url-pattern>/BBS/*</url-pattern>
+ </servlet-mapping>
 
     <!-- The mappings for the JSP servlet -->
     <servlet-mapping>
@@ -441,6 +453,7 @@
         <url-pattern>*.jsp</url-pattern>
         <url-pattern>*.jspx</url-pattern>
     </servlet-mapping>
+    
 
     <!-- The mapping for the SSI servlet -->
 <!--

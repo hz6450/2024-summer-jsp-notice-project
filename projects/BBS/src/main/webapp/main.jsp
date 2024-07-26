@@ -1,16 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.io.PrintWriter"%>
 <!DOCTYPE html>
 <html>
 
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width" initial-scale="1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/custom-font.css">
-<title>jsp 게시판 웹 사이트</title>
+<title>JSP 게시판 웹 사이트</title>
 <style type="text/css">
     .btn-arrow-left {
         margin-right: 10px;
@@ -35,10 +34,10 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" href="main.jsp">메인</a>
+                    <a class="nav-link active" href="./main.jsp">메인</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="BBS.jsp">게시판</a>
+                    <a class="nav-link" href="./BBS/list.do">게시판</a>
                 </li>
             </ul>
         </div>
@@ -50,7 +49,7 @@
 				<h1>웹 사이트 소개</h1>
 				<p>jsp와 부트스트랩, tomcat을 이용한 웹사이트</p>
 				<p>
-					<a class="btn btn-primary btn-pull" href="#" role="button">자세히
+					<a class="btn btn-primary btn-pull" href="view/BBS.jsp" role="button">자세히
 						알아보기</a>
 				</p>
 			</div>
@@ -64,29 +63,30 @@
 				<li data-target="#myCarousel" data-slide-to="2"></li>
 			</ol>
 			<div class="carousel-inner">
-				<div class="item active">
-					<img src="images/1.jpg">
+				<div class="carousel-item active">
+					<img src="images/1.jpg" class="d-block w-100" alt="...">
 				</div>
-				<div class="item">
-					<img src="images/2.jpg">
+				<div class="carousel-item">
+					<img src="images/2.jpg" class="d-block w-100" alt="...">
 				</div>
-				<div class="item">
-					<img src="images/3.jpg">
+				<div class="carousel-item">
+					<img src="images/3.jpg" class="d-block w-100" alt="...">
 				</div>
 			</div>
-			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left"></span>
-			</a> 
-			<a class="right carousel-control" href="#myCarousel" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right"></span>
+			<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
 			</a>
 		</div>
 	</div>
 
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="js/bootstrap.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 

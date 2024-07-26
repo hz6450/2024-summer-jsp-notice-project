@@ -3,3 +3,33 @@
 1721103958033	Copy file
 1721103985693	Rename resource 'BBS-NOTICE.jsp'
 1721105821820	Copy file
+1721198391575	Delete element
+1721198394686	Delete element
+1721198397950	Delete element
+1721205461021	Move 'BBS.jsp' to 'BBS'
+1721205489221	Move 'BBS.jsp' to 'webapp'
+1721276539153	Move 'BBS.jsp' to 'View'
+1721276543464	Move 'deleteAction.jsp' to 'Controller'
+1721276557252	Move 'loginAction.jsp' to 'Controller'
+1721276559629	Move 'logoutAction.jsp' to 'Controller'
+1721276569151	Move 'joinAction.jsp' to 'Controller'
+1721276571613	Move 'login.jsp' to 'View'
+1721276573146	Move 'join.jsp' to 'View'
+1721276575697	Move 'update.jsp' to 'View'
+1721276577416	Move 'updateAction.jsp' to 'Controller'
+1721276579941	Move 'view.jsp' to 'View'
+1721276582142	Move 'write.jsp' to 'View'
+1721276584965	Move 'writeAction.jsp' to 'Controller'
+1721278044155	Rename resource 'View'
+1721278923516	Delete element
+1721279269522	Move 'view' to 'webapp'
+1721279275612	Move 'Controller' to 'webapp'
+1721280219932	Rename resource 'view'
+1721280726372	Rename resource 'View'
+1721280734174	Rename resource 'Controller'
+1721282856211	Move 'BBS.jsp' to 'webapp'
+1721282880488	Move 'BBS.jsp' to 'view'
+1721283111675	Move 'updateAction.jsp' to 'view'
+1721283114335	Move 'updateAction.jsp' to 'controller'
+1721283209732	Move 'deleteAction.jsp' to 'view'
+1721283212132	Move 'deleteAction.jsp' to 'controller'
